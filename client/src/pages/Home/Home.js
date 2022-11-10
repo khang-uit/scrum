@@ -1,8 +1,20 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import './Home.css';
-
+import axios from 'axios';
 
 const Home = () => {
+  const [contents, setContents] = useState([]);
+
+  useEffect(() => {
+    const getContents = async () => {
+      const contentsData = await axios.get(
+        "http://localhost:5000/api/content/get-all"
+      );
+        console.log(contentsData.data.contents);
+      setContents(contentsData.data.contents);
+    };
+    getContents();
+  }, []);
   return (
     <div>
     <nav id="topbar">
@@ -31,54 +43,27 @@ const Home = () => {
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-sm-6 grid">
-                <div class="gridCustom">
-                    <div class="card">
-                        <a href="index.html">
-                            <div class="img-wrapper">
-                                <img src="/Home/heap.gif" class="d-block w-100" alt="..."/>
-                            </div>
-                        </a>
-                            <a href="index.html" class="card-title">Selection Sort</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 grid">
-                <div class="gridCustom">
-                    <div class="card">
-                        <a href="index.html">
-                            <div class="img-wrapper">
-                                <img src="/Home/sorting.gif" class="d-block w-100" alt="..."/>
-                            </div>
-                        </a>
-                            <a href="index.html" class="card-title">Selection Sort</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 grid">
-                <div class="gridCustom">
-                    <div class="card">
-                        <a href="index.html">
-                            <div class="img-wrapper">
-                                <img src="/Home/graph.gif" class="d-block w-100" alt="..."/>
-                            </div>
-                        </a>
-                            <a href="index.html" class="card-title">Heap Sort</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 grid">
-                <div class="gridCustom">
-                    <div class="card">
-                        <a href="/">
-                            <div class="img-wrapper">
-                                <img src="/Home/fenwick.gif" class="d-block w-100" alt="..."/>
-                            </div>
-                        </a>
-                            <a href="index.html" class="card-title">Graph Sort</a>
-                    </div>
-                </div>
-            </div>
+        {contents.length > 0 ? (
+          contents.map((item) => {
+            return (
+              <div class="col-md-4 col-sm-6 grid">
+              <div class="gridCustom">
+                  <div class="card">
+                      <a href="index.html">
+                          <div class="img-wrapper">
+                              <img src={item.thumb} class="d-block w-100" alt="..."/>
+                          </div>
+                      </a>
+                          <a href="index.html" class="card-title">{item.postTitle}</a>
+                  </div>
+              </div>
+          </div>
+            );
+          })
+        ) : (
+          <div></div>
+        )}
+        
         </div>
     </div>
     </div>
