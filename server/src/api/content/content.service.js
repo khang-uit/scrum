@@ -25,7 +25,7 @@ async function getAll() {
 async function get(body) {
     const {id} = body;
     console.log(id)
-    const newContent = await Content.find({thumb: ""}).remove().exec();
+    const newContent = await Content.find({postTitle: "Singly LinkedList"}).remove().exec();
     try {
         const content = await Content.find({ _id: id })
         return {
