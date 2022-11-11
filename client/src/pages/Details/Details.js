@@ -42,7 +42,7 @@ marginRight: 0.25+"rem"
         >
         </a>
         <a
-          href="https://visualgo.net"
+          href="/"
           style= {{
             fontSize: " 20px",
             marginLeft: "4px"
@@ -71,7 +71,9 @@ marginRight: 0.25+"rem"
       
       </nav>
       <div>
-      <div dangerouslySetInnerHTML={{ __html: content.postContent }} />
+          <img src={content.thumb} />
+          <h1>{content.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: content.postContent }} />
       </div>
     </div>
   );
