@@ -65,7 +65,9 @@
   }
   .body {
     background-color: #fff;
-    padding: 50px;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 20px;
   }
   .button-link {
     position: absolute;
@@ -76,4 +78,5 @@
     font-weight: 900;
   
   }
+ 
 

@@ -73,7 +73,7 @@ const Details = () => {
       </nav>
       <div className="body">
         <img src={content.thumb} />
-        <h1>{content.title}</h1>
+        <h1 >{content.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: content.postContent }} />
       </div>
     </div>
