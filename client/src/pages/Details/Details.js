@@ -15,6 +15,9 @@ function openTab(evt, tabName) {
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+function ShareLink() {  navigator.clipboard.writeText(document.location.href);
+  alert('Copied link!')
+}
 const Details = () => {
   const [content, setContent] = useState({});
   const { id } = useParams();
@@ -57,6 +60,9 @@ const Details = () => {
           <button className="tablinks">Search</button>
         </div>
         <br />
+        <div className="button-link">
+          <button style={{ fontWeight: 700 }} onClick={ShareLink}>SHARE</button>
+        </div>
         <div className="content" style={{ width: 100 + "%" }}>
           <div id="Insert" className="tabcontent"></div>
 
