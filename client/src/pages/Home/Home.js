@@ -27,7 +27,7 @@ const Home = () => {
             <nav id="topbar">
         
         <span style={{marginRight: 0.25 + 'rem'}}>
-        <a href="index.html">
+        <a >
             <img class="nav-logo" src="/Home/logo.png" alt=""/>
         </a>
         <a href="index.html" style={{fontFamily: 'SilkscreenNormal,sans-serif', fontSize: 20 + 'px', marginLeft: 4 + 'px'}}>

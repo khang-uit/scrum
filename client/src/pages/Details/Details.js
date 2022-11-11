@@ -15,6 +15,9 @@ function openTab(evt, tabName) {
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+function ShareLink() {  navigator.clipboard.writeText(document.location.href);
+  alert('Copied link!')
+}
 const Details = () => {
   const [content, setContent] = useState({});
   const { id } = useParams();
@@ -51,26 +54,16 @@ const Details = () => {
             <img className="logo" src="/Home/logo.png" alt="logo" />
           </a>
         </span>
-        <div className="tab">
-          <button className="tablinks">Insert</button>
-          <button className="tablinks">Delete</button>
-          <button className="tablinks">Search</button>
-        </div>
         <br />
-        <div className="content" style={{ width: 100 + "%" }}>
-          <div id="Insert" className="tabcontent"></div>
-
-          <div id="Delete" className="tabcontent"></div>
-
-          <div id="Search" className="tabcontent"></div>
+        <div className="button-link">
+          <button style={{ fontWeight: 700 }} onClick={ShareLink}>SHARE</button>
         </div>
+        
       </nav>
 
       <div className="body">
         <img src={content.thumb} />
-        <h1>{content.title}</h1>
-
-
+        <h1 >{content.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: content.postContent }} />
         <h1>Code example:</h1>
         <div width="100%">

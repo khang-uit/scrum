@@ -4,7 +4,7 @@ import Home from "./pages/Home/Home";
 import Admin from "./pages/Admin/Admin"
 import Details from "./pages/Details/Details";
 import Sort from "./pages/Details/Sort/Sort";
-import Landing from "./react-code-editor/src/components/Landing";
+// import Landing from "./react-code-editor/src/components/Landing";
 
 function App() {
   return (
