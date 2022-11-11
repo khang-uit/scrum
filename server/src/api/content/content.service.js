@@ -24,12 +24,13 @@ async function getAll() {
 
 async function get(body) {
     const {id} = body;
+    console.log(id)
     try {
-        const content = await Content.find({id})
+        const content = await Content.find({ _id: id })
         return {
             error: false,
             message: `Lấy content thành công`,
-            content,
+            content: content[0],
         }
     }
     catch(err) {
@@ -41,6 +42,7 @@ async function get(body) {
 }
 
 async function add(body) {
+    console.log(body)
     const {postTitle, category, thumb, postContent} = body;
 
     const newContent = new Content({

@@ -49,7 +49,7 @@ const Home = () => {
               <div class="col-md-4 col-sm-6 grid">
               <div class="gridCustom">
                   <div class="card">
-                      <a href="index.html">
+                      <a href={`/details/${item._id}`}>
                           <div class="img-wrapper">
                               <img src={item.thumb} class="d-block w-100" alt="..."/>
                           </div>

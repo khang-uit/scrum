@@ -1,4 +1,6 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
+import { useParams } from 'react-router-dom'
+import axios from "axios"
 import './Details.css';
 function openTab(evt, tabName) {
   var i, tabcontent, tablinks;
@@ -14,6 +16,19 @@ function openTab(evt, tabName) {
   evt.currentTarget.className += " active";
 }
 const Details = () => {
+  const [content, setContent] = useState({});
+  const { id } = useParams()
+
+  useEffect(() => {
+    const getContent = async () => {
+      const contentData = await axios.post(
+        "http://localhost:5000/api/content/get",
+        {id}
+      );
+      setContent(contentData.data.content);
+    };
+    getContent();
+  }, []);
   return (
     <div>
     <nav id="topbar">
@@ -55,6 +70,9 @@ marginRight: 0.25+"rem"
       </div>
       
       </nav>
+      <div>
+      <div dangerouslySetInnerHTML={{ __html: content.postContent }} />
+      </div>
     </div>
   );
 };
