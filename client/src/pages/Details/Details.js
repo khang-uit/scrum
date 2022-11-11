@@ -1,7 +1,7 @@
-import React,{useState, useEffect} from "react";
-import { useParams } from 'react-router-dom'
-import axios from "axios"
-import './Details.css';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import "./Details.css";
 function openTab(evt, tabName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -17,13 +17,13 @@ function openTab(evt, tabName) {
 }
 const Details = () => {
   const [content, setContent] = useState({});
-  const { id } = useParams()
+  const { id } = useParams();
 
   useEffect(() => {
     const getContent = async () => {
       const contentData = await axios.post(
         "http://localhost:5000/api/content/get",
-        {id}
+        { id }
       );
       setContent(contentData.data.content);
     };
@@ -31,48 +31,43 @@ const Details = () => {
   }, []);
   return (
     <div>
-    <nav id="topbar">
-      <span style= {{
-marginRight: 0.25+"rem"
-      }}
-      >
-        <a
-          href="https://www.comp.nus.edu.sg/~stevenha"
-          // style="text-decoration: none; color: white"
-        >
-        </a>
-        <a
-          href="/"
-          style= {{
-            fontSize: " 20px",
-            marginLeft: "4px"
+      <nav id="topbar">
+        <span
+          style={{
+            marginRight: 0.25 + "rem",
           }}
-
         >
-          <img className="logo" src="/Home/logo.png" alt="logo" />
-        </a>
-      </span>
-      <div className="tab">
-        <button className="tablinks" >Insert</button>
-        <button className="tablinks"  >Delete</button>
-        <button className="tablinks"  >Search</button>
-      </div>
-      <br/>
-      <div className="content" style={{width:100+"%"}}>
-        <div id="Insert" className="tabcontent">
-          </div>
-          
-          <div id="Delete" className="tabcontent">
-          </div>
-          
-          <div id="Search" className="tabcontent">
-          </div>
-      </div>
-      
+          <a
+            href="https://www.comp.nus.edu.sg/~stevenha"
+            // style="text-decoration: none; color: white"
+          ></a>
+          <a
+            href="/"
+            style={{
+              fontSize: " 20px",
+              marginLeft: "4px",
+            }}
+          >
+            <img className="logo" src="/Home/logo.png" alt="logo" />
+          </a>
+        </span>
+        <div className="tab">
+          <button className="tablinks">Insert</button>
+          <button className="tablinks">Delete</button>
+          <button className="tablinks">Search</button>
+        </div>
+        <br />
+        <div className="content" style={{ width: 100 + "%" }}>
+          <div id="Insert" className="tabcontent"></div>
+
+          <div id="Delete" className="tabcontent"></div>
+
+          <div id="Search" className="tabcontent"></div>
+        </div>
       </nav>
-      <div>
-          <img src={content.thumb} />
-          <h1>{content.title}</h1>
+      <div className="body">
+        <img src={content.thumb} />
+        <h1>{content.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: content.postContent }} />
       </div>
     </div>
