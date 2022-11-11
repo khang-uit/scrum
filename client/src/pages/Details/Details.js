@@ -54,22 +54,11 @@ const Details = () => {
             <img className="logo" src="/Home/logo.png" alt="logo" />
           </a>
         </span>
-        <div className="tab">
-          <button className="tablinks">Insert</button>
-          <button className="tablinks">Delete</button>
-          <button className="tablinks">Search</button>
-        </div>
         <br />
         <div className="button-link">
           <button style={{ fontWeight: 700 }} onClick={ShareLink}>SHARE</button>
         </div>
-        <div className="content" style={{ width: 100 + "%" }}>
-          <div id="Insert" className="tabcontent"></div>
-
-          <div id="Delete" className="tabcontent"></div>
-
-          <div id="Search" className="tabcontent"></div>
-        </div>
+        
       </nav>
       <div className="body">
         <img src={content.thumb} />
