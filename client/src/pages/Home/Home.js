@@ -10,7 +10,7 @@ const Home = () => {
     useEffect(() => {
         const getContents = async () => {
             const contentsData = await axios.get(
-                "http://localhost:5000/api/content/get-all"
+                "https://scrumbe.herokuapp.com/api/content/get-all"
             );
             console.log(contentsData.data.contents);
             setContents(contentsData.data.contents);

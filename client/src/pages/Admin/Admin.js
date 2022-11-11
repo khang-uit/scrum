@@ -29,7 +29,7 @@ const Home = () => {
         e.preventDefault();
         console.log(formData);
         const res = await axios.post(
-            "http://localhost:5000/api/content/add",
+            "https://scrumbe.herokuapp.com/api/content/add",
             {
                 postTitle: formData.title,
                 category: formData.category,

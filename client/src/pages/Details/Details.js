@@ -22,7 +22,7 @@ const Details = () => {
   useEffect(() => {
     const getContent = async () => {
       const contentData = await axios.post(
-        "http://localhost:5000/api/content/get",
+        "https://scrumbe.herokuapp.com/api/content/get",
         { id }
       );
       setContent(contentData.data.content);
@@ -69,7 +69,13 @@ const Details = () => {
       <div className="body">
         <img src={content.thumb} />
         <h1>{content.title}</h1>
+
+
         <div dangerouslySetInnerHTML={{ __html: content.postContent }} />
+        <h1>Code example:</h1>
+        <div width="100%">
+          <iframe style={{width: '100%', height: '1200px'}}src="https://algorithm-visualizer.org/divide-and-conquer/merge-sort" title="W3Schools Free Online Web Tutorials"></iframe>
+        </div>
       </div>
     </div>
   );
