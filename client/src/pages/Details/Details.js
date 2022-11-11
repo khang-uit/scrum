@@ -2,6 +2,10 @@ import React,{useState, useEffect} from "react";
 import { useParams } from 'react-router-dom'
 import axios from "axios"
 import './Details.css';
+import {
+  FacebookShareButton
+} from "react-share";
+
 function openTab(evt, tabName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -72,6 +76,8 @@ marginRight: 0.25+"rem"
       </nav>
       <div>
           <img src={content.thumb} />
+          <FacebookShareButton size={32} width='50' url={`localhost:5000/details/`+content._id}>
+          </FacebookShareButton>
           <h1>{content.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: content.postContent }} />
       </div>
