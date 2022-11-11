@@ -313,9 +313,7 @@ const Home = () => {
                             }
                         }}></ReactQuill>
                     </article>
-                    <article>
-                        appearance
-                    </article>
+                    
                     <button type="submit" className="SUBMIT">SUMBIT</button>
                     </section>
                 </form>
